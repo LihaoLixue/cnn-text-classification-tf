@@ -90,13 +90,13 @@ def train(x_train, y_train, vocab_processor, x_dev, y_dev):
         sess = tf.Session(config=session_conf)
         with sess.as_default():
             cnn = TextCNN(
-                sequence_length=x_train.shape[1],            #56
-                num_classes=y_train.shape[1],                #2
-                vocab_size=len(vocab_processor.vocabulary_), #18758
-                embedding_size=FLAGS.embedding_dim,
-                filter_sizes=list(map(int, FLAGS.filter_sizes.split(","))),
-                num_filters=FLAGS.num_filters,
-                l2_reg_lambda=FLAGS.l2_reg_lambda)
+                sequence_length=x_train.shape[1],               #56
+                num_classes=y_train.shape[1],                   #2
+                vocab_size=len(vocab_processor.vocabulary_),    #18758
+                embedding_size=FLAGS.embedding_dim,             #128
+                filter_sizes=list(map(int, FLAGS.filter_sizes.split(","))),  #3
+                num_filters=FLAGS.num_filters,                  # 128
+                l2_reg_lambda=FLAGS.l2_reg_lambda)             # 0
 
             # Define Training procedure
             global_step = tf.Variable(0, name="global_step", trainable=False)
