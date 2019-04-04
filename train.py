@@ -96,7 +96,7 @@ def train(x_train, y_train, vocab_processor, x_dev, y_dev):
                 embedding_size=FLAGS.embedding_dim,             #128
                 filter_sizes=list(map(int, FLAGS.filter_sizes.split(","))),  #3
                 num_filters=FLAGS.num_filters,                  # 128
-                l2_reg_lambda=FLAGS.l2_reg_lambda)             # 0
+                l2_reg_lambda=FLAGS.l2_reg_lambda)              # 0
 
             # Define Training procedure
             global_step = tf.Variable(0, name="global_step", trainable=False)
